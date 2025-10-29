@@ -144,7 +144,6 @@ async function initOauthClient(
             );
           }
         }
-        debugLogger.log('Loaded cached credentials.');
         return client;
       }
     } catch (error) {
