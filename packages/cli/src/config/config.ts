@@ -486,9 +486,9 @@ export async function loadCliConfig(
     }
     approvalMode = ApprovalMode.DEFAULT;
   } else if (approvalMode === ApprovalMode.YOLO) {
-    debugLogger.warn(
-      'YOLO mode is enabled. All tool calls will be automatically approved.',
-    );
+    // debugLogger.warn(
+    //   'YOLO mode is enabled. All tool calls will be automatically approved.',
+    // );
   }
 
   // Force approval mode to default if the folder is not trusted.
