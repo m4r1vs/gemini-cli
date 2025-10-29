@@ -520,6 +520,8 @@ export async function clearCachedCredentialFile() {
     const useEncryptedStorage = getUseEncryptedStorageFlag();
     if (useEncryptedStorage) {
       await OAuthCredentialStorage.clearCredentials();
+    } else {
+      await fs.rm(Storage.getOAuthCredsPath(), { force: true });
     }
     // Clear the Google Account ID cache when credentials are cleared
     await userAccountManager.clearCachedGoogleAccount();

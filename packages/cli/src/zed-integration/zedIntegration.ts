@@ -18,7 +18,6 @@ import {
   logToolCall,
   convertToFunctionResponse,
   ToolConfirmationOutcome,
-  clearCachedCredentialFile,
   isNodeError,
   getErrorMessage,
   isWithinRoot,
@@ -131,7 +130,6 @@ class GeminiAgent {
   async authenticate({ methodId }: acp.AuthenticateRequest): Promise<void> {
     const method = z.nativeEnum(AuthType).parse(methodId);
 
-    await clearCachedCredentialFile();
     await this.config.refreshAuth(method);
     this.settings.setValue(
       SettingScope.User,
